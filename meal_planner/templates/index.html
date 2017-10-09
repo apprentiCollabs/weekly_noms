@@ -19,9 +19,8 @@
                 Login
             </h3>
             <p>
-                If you've been here before, you should
+                If you've been here before, you should <a href="{% url 'users:login' %}" class="btn btn-lg btn-success">login</a>
             </p>
-            <button type="button" name="login" class="btn btn-lg btn-success">login</button>
         </aside>
 
         <aside class="col-xs-6">
@@ -29,9 +28,8 @@
                 Register
             </h3>
             <p>
-                If you've never been here before, you should
+                If you've never been here before, you should <a href="{% url 'users:register' %}" class="btn btn-lg btn-success">login</a>
             </p>
-            <button type="button" name="register" class="btn btn-lg btn-success">register</button>
         </aside>
     </div>
 {% endblock %}
