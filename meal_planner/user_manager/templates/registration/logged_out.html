@@ -1,9 +1,23 @@
 {% extends '../../../templates/base.html' %}
 
 {% block title %}
-    title
+    Logged Out
 {% endblock %}
 
 {% block content %}
-    <!-- NOTE: content goes here -->
+    <div class="row">
+        <header class="col-xs-12 jumbotron">
+            <h1>
+                Congratulations, you are now logged out.
+            </h1>
+        </header>
+    </div>
+
+    <div class="row">
+        <article class="col-xs-12">
+            <p>
+                Logged out by mistake? <a href="{% url 'login' %}">Log in again.</a>
+            </p>
+        </article>
+    </div>
 {% endblock %}
