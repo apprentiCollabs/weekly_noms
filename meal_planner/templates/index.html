@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Welcome to Weekly Noms
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <header class="col-xs-12">
+            <h1>
+                Weekly Noms
+            </h1>
+        </header>
+    </div>
+
+    <div class="row">
+        <aside class="col-xs-6">
+            <p>
+                If you've been here before, you should
+            </p>
+            <button type="button" name="login" class="btn btn-lg btn-success">log in</button>
+        </aside>
+
+        <aside class="col-xs-6">
+            <p>
+                If you've never been here before, you should
+            </p>
+            <button type="button" name="register" class="btn btn-lg btn-success">register</button>
+        </aside>
+    </div>
+{% endblock %}
