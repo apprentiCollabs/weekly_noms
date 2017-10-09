@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% if title %}
+            {{ title }}
+        {% else %}
+            Weekly Noms
+        {% endif %}
+    </title>
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/paper/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- additional css -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static '../static/main.css' %}">
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+        <a href="#" class="navbar-brand">
+            Logo
+        </a>
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a href="#">
+                    Action link 1
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    Action link 2
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="container fluid">
+        {% block content %}
+            <!-- NOTE: this is where partials come in -->
+        {% endblock %}
+    </main>
+
+    <!-- required scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- NOTE: if you're using other JS, put it here -->
+  </body>
+</html>
