@@ -8,14 +8,13 @@ from taggit.managers import TaggableManager
 class Ingredient(models.Model):
     """Store ingredients for each recipe."""
 
-    # recipes = models.ManyToManyField(
-    #     Recipe,
-    #     related_name='ingredients'
-    # )
     name = models.CharField(max_length=100)
-    amount = models.IntegerField()
-    measurement = models.CharField(max_length=10)
 
+    # amount = models.IntegerField()
+    # measurement = models.CharField(max_length=10)
+    # Fields stripped out for iterative development.
+    # TODO: translate ingredients into serialized comma sperated strings in the recipe model
+    #   So that we can record name AND amount on a per-recipe basis.s
 
 class Recipe(models.Model):
     """Store recipes for the user."""

@@ -1,5 +1,7 @@
 {% extends 'meal_manager/base.html' %}
 
+{% load widget_tweaks %}
+
 {% block title %}
     Add New Recipe
 {% endblock %}
@@ -15,7 +17,32 @@
 
     <div class="row">
         <section class="col-xs-12">
-            <!-- TODO: form goes here for adding new recipe to db -->
+            <form action="{% url 'meals:add_recipe' %}" method="post">
+                {% csrf_token %}
+
+                {% for hidden in form.hidden_fields %}
+                    {{ hidden }}
+                {% endfor %}
+
+                {% for field in form.visible_fields %}
+                    <div class="form-group">
+                        <label for="{{ field.id_for_label }}">
+                            {{ field.label }}
+                        </label>
+                        {{ field|add_class:'form-control' }}
+                        {% for error in field.errors %}
+                            <span class="help-block">
+                                {{ error }}
+                            </span>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+                <div class="form-group">
+                    <button type="submit" name="login" class="btn btn-success">
+                        Submit
+                    </button>
+                </div>
+            </form>
         </section>
     </div>
 {% endblock %}
