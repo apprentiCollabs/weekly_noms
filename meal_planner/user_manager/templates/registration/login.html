@@ -30,6 +30,7 @@
                             {{ field.label }}
                         </label>
                         {{ field|add_class:'form-control' }}
+                        <!-- NOTE: we can talk about doing errors another way if you prefer. I would like to keep errors not tied to a particular input, for security reasons, but am possibly willing to be flexible about that -->
                         {% for error in field.errors %}
                             <span class="help-block">
                                 {{ error }}
