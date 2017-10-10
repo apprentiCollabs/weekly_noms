@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'meal_manager',
     'user_manager',
     'taggit',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [

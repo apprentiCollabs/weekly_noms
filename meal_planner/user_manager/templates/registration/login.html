@@ -1,5 +1,7 @@
 {% extends '../base.html' %}
 
+{% load widget_tweaks %}
+
 {% block title %}
     Login
 {% endblock %}
@@ -15,7 +17,33 @@
 
     <div class="row">
         <section class="col-xs-12">
-            <!-- TODO: include login form in whatever format you feel appropriate -->
+            <form class="col-xs-6 col-xs-offset-2" action="{% url 'meals:all_recipes' %}" method="POST">
+                {% csrf_token %}
+
+                {% for hidden in login_form.hidden_fields %}
+                    {{ hidden }}
+                {% endfor %}
+
+                {% for field in login_form.visible_fields %}
+                    <div class="form-group">
+                        <label for="{{ field.id_for_label }}">
+                            {{ field.label }}
+                        </label>
+                        {{ field|add_class:'form-control' }}
+                        {% for error in field.errors %}
+                            <span class="help-block">
+                                {{ error }}
+                            </span>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+
+                <div class="form-group">
+                    <button type="submit" name="login" class="btn btn-success">
+                        Login
+                    </button>
+                </div>
+            </form>
         </section>
     </div>
 {% endblock %}
