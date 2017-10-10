@@ -4,7 +4,7 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User, Permission
 from django.shortcuts import render, redirect
-from django.views.generic import CreateView
+from django.views.generic.edit import CreateView
 from django.views.generic.base import TemplateView
 
 
