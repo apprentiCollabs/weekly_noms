@@ -1,5 +1,7 @@
 {% extends '../base.html' %}
 
+{% load widget_tweaks %}
+
 {% block title %}
     Register
 {% endblock %}
@@ -15,7 +17,34 @@
 
     <div class="row">
         <section class="col-xs-12">
-            <!-- TODO: include registration/create new user form in whatever format you feel appropriate -->
+            <form class="col-xs-6 col-xs-offset-2" action="{% url 'meals:all_recipes' %}" method="POST">
+                {% csrf_token %}
+
+                {% for hidden in register_form.hidden_fields %}
+                    {{ hidden }}
+                {% endfor %}
+
+                {% for field in register_form.visible_fields %}
+                    <div class="form-group">
+                        <label for="{{ field.id_for_label }}">
+                            {{ field.label }}
+                        </label>
+                        {{ field|add_class:'form-control' }}
+                        <!-- NOTE: we can talk about doing errors another way if you prefer. I would like to keep errors not tied to a particular input, for security reasons, but am possibly willing to be flexible about that -->
+                        {% for error in field.errors %}
+                            <span class="help-block">
+                                {{ error }}
+                            </span>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+
+                <div class="form-group">
+                    <button type="submit" name="register" class="btn btn-success">
+                        Register
+                    </button>
+                </div>
+            </form>
         </section>
     </div>
 {% endblock %}
