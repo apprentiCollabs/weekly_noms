@@ -1,11 +1,11 @@
 """Views for user managment."""
 
-from django.views.generic import CreateView
-from django.views.generic.base import TemplateView
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User, Permission
 from django.shortcuts import render, redirect
+from django.views.generic import CreateView
+from django.views.generic.base import TemplateView
 
 
 class Index(TemplateView):
@@ -17,8 +17,9 @@ class RegisterUser(CreateView):
     model = User
     fields = ['username', 'password']
 
+    # TODO: build simple modelform (avoid UserCreationForm trashpile), two fields, validation handled via model, form_class & template_name
+
 # NOTE: so what I'd planned to do was write the signup this way. Obviously not a class-based view and tbh, I'm not totally sure what needs to be done to turn it into one. Perhaps a conversation/brief discussion?
-# NOTE: after doing some reading, I gather I should use a CreateView. Though I'm not clear why it wouldn't be a ModelView...perhaps because the UserCreationForm is built in?
 # def signup(request):
 #     if request.method == 'POST':
 #         form = UserCreationForm(request.POST)
