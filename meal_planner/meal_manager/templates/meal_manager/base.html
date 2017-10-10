@@ -54,13 +54,29 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <h4 class="modal-title">
-                        Modal title
+                        Add New Ingredient
                     </h4>
                 </div>
                 <div class="modal-body">
-                    <p>
-                        One fine body&hellip;
-                    </p>
+                    <div id="myDIV" class="header">
+                        <h2>
+                            My To Do List
+                        </h2>
+                        <input type="text" id="myInput" placeholder="Add a new thing here" />
+                        <span onclick="newElement()" class="addBtn">Add</span>
+                    </div>
+
+                    <ul id="myUL">
+                        <li>
+                            Buy eggs
+                        </li>
+                        <li>
+                            Read a book
+                        </li>
+                        <li>
+                            Organize office
+                        </li>
+                    </ul>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">
