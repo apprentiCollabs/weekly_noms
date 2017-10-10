@@ -1,0 +1,4 @@
+/*** base.html ***/
+nav a:last-child {
+    margin-right: 20px;
+}

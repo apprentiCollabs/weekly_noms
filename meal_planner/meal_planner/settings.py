@@ -132,3 +132,4 @@ STATIC_URL = '/static/'
 
 
 TAGGIT_CASE_INSENSITIVE = True
+LOGIN_REDIRECT_URL = 'meals:all_recipes'
