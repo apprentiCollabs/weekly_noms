@@ -10,3 +10,5 @@ urlpatterns = [
     url(r'^register/$', RegisterUser.as_view(), name='register'),
     url(r'^$', Index.as_view(), name='index')
 ]
+
+# NOTE for Patrick: any reason why you didn't use core_views.signup instead of register? I'm look at https://simpleisbetterthancomplex.com/tutorial/2017/02/18/how-to-create-user-sign-up-view.html and using that as a guide for new user registration. Let me know your thoughts.
