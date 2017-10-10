@@ -21,6 +21,7 @@ for (var i = 0; i < close.length; i++) {
 // Create a new list item when clicking on the "Add" button
 function newElement() {
   var li = document.createElement("li");
+  li.className = 'element';
   var inputValue = document.getElementById("myInput").value;
   var t = document.createTextNode(inputValue);
   li.appendChild(t);

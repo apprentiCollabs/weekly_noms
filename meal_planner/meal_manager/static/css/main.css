@@ -13,7 +13,7 @@ ul#myUL {
 }
 
 /* Style the list items */
-ul#myUL li {
+ul#myUL li.element {
     position: relative;
     padding: 12px 8px 12px 40px;
     background: #eee;
@@ -28,12 +28,12 @@ ul#myUL li {
 }
 
 /* Set all odd list items to a different color (zebra-stripes) */
-ul#myUL li:nth-child(odd) {
+ul#myUL li.element:nth-child(odd) {
     background: #f9f9f9;
 }
 
 /* Darker background-color on hover */
-ul#myUL li:hover {
+ul#myUL li.element:hover {
     background: #ddd;
 }
 
