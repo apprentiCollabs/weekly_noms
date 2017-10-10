@@ -18,6 +18,7 @@ class RegisterUser(CreateView):
     fields = ['username', 'password']
 
 # NOTE: so what I'd planned to do was write the signup this way. Obviously not a class-based view and tbh, I'm not totally sure what needs to be done to turn it into one. Perhaps a conversation/brief discussion?
+# NOTE: after doing some reading, I gather I should use a CreateView. Though I'm not clear why it wouldn't be a ModelView...perhaps because the UserCreationForm is built in?
 # def signup(request):
 #     if request.method == 'POST':
 #         form = UserCreationForm(request.POST)
