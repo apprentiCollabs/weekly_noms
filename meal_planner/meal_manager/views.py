@@ -1,5 +1,6 @@
 """Process recipes into a meal plan."""
 
+import random
 from django.shortcuts import render
 from django.core.urlresolvers import reverse_lazy
 from django.contrib.auth.models import User
@@ -10,6 +11,7 @@ from django.views.generic import (
 )
 from .models import Recipe, Ingredient
 from .forms import RecipeForm, IngredientForm
+
 
 class AllRecipes(ListView):
     """Home view for logged in users."""
@@ -60,4 +62,8 @@ class DeleteRecipe(DeleteView):
 class MealPlan(ListView):
     """Generate a weighted-random meal plan."""
     
-    pass
+    template_name = 'meal_manager/plan.html'
+
+    def get_queryset(self):
+        """Get recipes for the meal plan."""
+        return Recipe.objects.filter(user=self.request.user).order_by('?')[:7]
