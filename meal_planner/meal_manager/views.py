@@ -9,7 +9,7 @@ from django.views.generic import (
     DetailView, ListView, UpdateView, CreateView, DeleteView,
 )
 from .models import Recipe, Ingredient
-from .forms import RecipeForm
+from .forms import RecipeForm, IngredientForm
 
 class AllRecipes(ListView):
     """Home view for logged in users."""
@@ -28,10 +28,16 @@ class AddRecipe(CreateView):
     success_url = reverse_lazy('meals:all_recipes')
 
 
+class AddIngredient(CreateView):
+    """Add a new ingredient object to the database."""
+    form_class = IngredientForm
+    success_url = reverse_lazy('meals:add_recipe')
+
 
 class EditRecipe(UpdateView):
     """Edit a single recipe."""
-    
+
+    model = Recipe
     form_class =  RecipeForm
     template_name = 'meal_manager/edit.html'
     success_url = reverse_lazy('meals:all_recipes')
