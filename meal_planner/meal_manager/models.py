@@ -13,8 +13,9 @@ class Ingredient(models.Model):
     # amount = models.IntegerField()
     # measurement = models.CharField(max_length=10)
     # Fields stripped out for iterative development.
-    # TODO: translate ingredients into serialized comma sperated strings in the recipe model
-    #   So that we can record name AND amount on a per-recipe basis.s
+    # TODO: translate ingredients into serialized comma sperated strings in
+    #   the recipe model so that we can record name AND amount on a per-recipe
+    #   basis.
 
 class Recipe(models.Model):
     """Store recipes for the user."""
@@ -28,5 +29,3 @@ class Recipe(models.Model):
     title = models.CharField(max_length=100)
     cook_time = models.IntegerField()  # to be stored as an integer number of minutes
     instructions = models.TextField(max_length=1000)
-
-
