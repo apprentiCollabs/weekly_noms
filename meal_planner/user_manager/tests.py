@@ -40,17 +40,18 @@ class UserTestCases(TestCase):
         self.assertTrue(User.objects.count() == 0)
         self.client.post("/register/", {
             "username": "noperope",
-            "password": "welldone",
-            "check_password": "welldone",
+            "password1": "welldone",
+            "password2": "welldone",
         })
-        self.assertTrue(User.objects.count == 1)
+        self.assertTrue(User.objects.count() == 1)
 
     def test_new_user_no_recipes(self):
         """Test that a new user won't have recipes associated."""
         self.assertTrue(User.objects.count() == 0)
         self.client.post("/register/", {
             "username": "noperope",
-            "password": "welldone",
-            "check_password": "welldone",
+            "password1": "welldone",
+            "password2": "welldone",
         })
+
         self.assertTrue(User.objects.get(username="noperope").recipes.count() == 0)

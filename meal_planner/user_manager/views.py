@@ -15,22 +15,6 @@ class Index(TemplateView):
 class RegisterUser(CreateView):
     """Register a user using default model form."""
     model = User
+    template_name = "registration/signup.html"
     success_url = reverse_lazy('meals:all_recipes')
-    fields = ['username', 'password']
-
-    # TODO: build simple modelform (avoid UserCreationForm trashpile), two fields, validation handled via model, form_class & template_name
-
-# NOTE: so what I'd planned to do was write the signup this way. Obviously not a class-based view and tbh, I'm not totally sure what needs to be done to turn it into one. Perhaps a conversation/brief discussion?
-# def signup(request):
-#     if request.method == 'POST':
-#         form = UserCreationForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             user = form.cleaned_data.get('username')
-#             raw_password = form.cleaned_data.get('password1')
-#             user = authenticate(username=username, password=raw_password)
-#             login(request, user)
-#             return redirect('meals:all_recipes')
-#         else:
-#             form = UserCreationForm()
-#             return render(request, '../registration/signup.html', {'form': form})
+    form_class = UserCreationForm
