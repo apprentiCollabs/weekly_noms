@@ -3,7 +3,7 @@
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User, Permission
-from django.shortcuts import render, redirect
+from django.core.urlresolvers import reverse_lazy
 from django.views.generic import CreateView
 from django.views.generic.base import TemplateView
 
@@ -15,6 +15,7 @@ class Index(TemplateView):
 class RegisterUser(CreateView):
     """Register a user using default model form."""
     model = User
+    success_url = reverse_lazy('meals:all_recipes')
     fields = ['username', 'password']
 
     # TODO: build simple modelform (avoid UserCreationForm trashpile), two fields, validation handled via model, form_class & template_name

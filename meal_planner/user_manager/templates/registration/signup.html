@@ -19,12 +19,7 @@
         <section class="col-xs-12">
             <form class="col-xs-6 col-xs-offset-2" action="{% url 'meals:all_recipes' %}" method="POST">
                 {% csrf_token %}
-
-                {% for hidden in register_form.hidden_fields %}
-                    {{ hidden }}
-                {% endfor %}
-
-                {% for field in register_form.visible_fields %}
+                {% for field in form.visible_fields %}
                     <div class="form-group">
                         <label for="{{ field.id_for_label }}">
                             {{ field.label }}
