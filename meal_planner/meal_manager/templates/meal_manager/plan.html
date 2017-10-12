@@ -19,15 +19,11 @@
                 Available Recipes
             </h4>
             <div id="availableRecipes">
-                <div class="recipe">
-                    <h6>recipe title</h6>
-                </div>
-                <div class="recipe">
-                    <h6>another recipe</h6>
-                </div>
-                <div class="recipe">
-                    <h6>the tastiest of them all</h6>
-                </div>
+                {% for recipe in object_list %}
+                    <div class="recipe">
+                        <h6><a href="{% url 'meals:view_recipe' pk=recipe.id %}">{{ recipe.title }}</a></h6>
+                    </div>
+                {% endfor %}
             </div>
         </section>
 

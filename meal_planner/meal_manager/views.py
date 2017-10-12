@@ -76,5 +76,4 @@ class MealPlan(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         """Get recipes for the meal plan."""
-
         return Recipe.objects.filter(user=self.request.user).order_by('?')[:7]

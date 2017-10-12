@@ -24,24 +24,60 @@
                     {{ hidden }}
                 {% endfor %}
 
-                {% for field in form.visible_fields %}
+                <!-- {% for field in form.visible_fields %}
                     <div class="form-group">
-                        <label for="{{ field.id_for_label }}">
-                            {{ field.label }}
-                        </label>
-                        {{ field|add_class:'form-control' }}
                         {% for error in field.errors %}
-                            <span class="help-block">
-                                {{ error }}
-                            </span>
+                        <span class="help-block">
+                            {{ error }}
+                        </span>
                         {% endfor %}
+                    </div> -->
+                    <!-- {% endfor %} -->
+                    <label for="{{ form.title.id_for_label }}">
+                        {{ form.title.label }}
+                    </label>
+                    {{ form.title|add_class:'form-control' }}
+                    <!-- NOTE: Tags hardcoded here -->
+                    <input type="checkbox" name="healthy" value="healthy" id="">
+                    <label for="healthy">Healthy</label>
+
+                    <input type="checkbox" name="comfort" value="comfort" id="">
+                    <label for="comfort">Comfort Food</label>
+
+                    <input type="checkbox" name="vegetarian" value="vegetarian" id="">
+                    <label for="vegetarian">Vegetarian</label>
+
+                    <input type="checkbox" name="easy" value="easy" id="">
+                    <label for="easy">Easy</label>
+
+                    <input type="checkbox" name="quick" value="quick" id="">
+                    <label for="quick">Quick</label>
+
+                    <input type="checkbox" name="prepare_ahead" value="prepare_ahead" id="">
+                    <label for="prepare_ahead">Prepare ahead</label>
+
+                    <input type="checkbox" name="large_portions" value="large_portions" id="">
+                    <label for="large_portions">Large Portions</label>
+
+                    <label for="{{ form.cook_time.id_for_label }}">
+                        {{ form.cook_time.label }}
+                    </label>
+                    {{ form.cook_time|add_class:'form-control' }}
+
+                    <label for="{{ form.ingredients.id_for_label }}">
+                        {{ form.ingredients.label }}
+                    </label>
+                    {{ form.ingredients|add_class:'form-control' }}
+                    <div class="form-group">
+                        <button type="button" name="button" class="btn btn-default btn-sm" id="addIngredTrigger">
+                            Need to add an ingredient?
+                        </button>
                     </div>
-                {% endfor %}
-                <div class="form-group">
-                    <button type="button" name="button" class="btn btn-default btn-sm" id="addIngredTrigger">
-                        Need to add an ingredient?
-                    </button>
-                </div>
+
+                    <label for="{{ form.instructions.id_for_label }}">
+                        {{ form.instructions.label }}
+                    </label>
+                    {{ form.instructions|add_class:'form-control' }}
                 <div class="form-group">
                     <button type="submit" name="add_new_recipe" class="btn btn-success">
                         Submit
@@ -52,7 +88,11 @@
 
         <aside class="col-xs-4" id="addIngredCol">
             <div class="input-group" id="newIngredInputBox">
+                <!-- TODO: get this input to send a post request to meals:add_ingredient. -->
+                <!-- <form action="{% url 'meals:add_ingredient' %}" method="post"> -->
                 <input type="text" id="newIngredInput" placeholder="Add a new thing here" class="form-control" />
+                    <!-- <input type="submit" value="Add" class="input-group-addon btn btn-sm btn-default" id="addNew"> -->
+                <!-- </form> -->
                 <span class="input-group-addon btn btn-sm btn-default" id="addNew">Add</span>
             </div>
 
