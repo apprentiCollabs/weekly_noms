@@ -54,12 +54,14 @@ class ViewRecipe(DetailView):
     """View a recipe in more complete detail."""
 
     model = Recipe
-
+    template_name = 'meal_manager/recipe.html'
+    # import pdb; pdb.set_trace()
 
 class DeleteRecipe(DeleteView):
     """Remove an unwanted recipe."""
     
     model = Recipe
+    # template_name = 'meal_manager/recipe.html'
     success_url = reverse_lazy('meals:all_recipes')
 
 

@@ -66,7 +66,7 @@ class RecipeTestCases(TestCase):
         self.client.force_login(self.users[0])
         response = self.client.post('/meals/add/', {
             'title': 'title',
-            'ingredients': 10,
+            'ingredients': 10,  # id for an ingredient object
             'tags': 'stuff nonsesne',
             'cook_time': 20,
             'instructions': 'words here',
