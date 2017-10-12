@@ -89,11 +89,11 @@
         <aside class="col-xs-4" id="addIngredCol">
             <div class="input-group" id="newIngredInputBox">
                 <!-- TODO: get this input to send a post request to meals:add_ingredient. -->
-                <!-- <form action="{% url 'meals:add_ingredient' %}" method="post"> -->
+                <form action="{% url 'meals:add_ingredient' %}" method="post">
                 <input type="text" id="newIngredInput" placeholder="Add a new thing here" class="form-control" />
-                    <!-- <input type="submit" value="Add" class="input-group-addon btn btn-sm btn-default" id="addNew"> -->
-                <!-- </form> -->
-                <span class="input-group-addon btn btn-sm btn-default" id="addNew">Add</span>
+                    <input type="submit" value="Add" class="input-group-addon btn btn-sm btn-default" id="addNew">
+                </form>
+                <!-- <span class="input-group-addon btn btn-sm btn-default" id="addNew">Add</span> -->
             </div>
 
             <ul id="addedItems" class="list-group">
