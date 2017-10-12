@@ -49,3 +49,17 @@ li.userAddedIngred:nth-child(odd) {
 li.userAddedIngred:hover {
     background: #DDD;
 }
+
+
+
+/*** plan.html ***/
+div.recipe {
+    padding: 10px;
+    border: 1px solid purple;
+    cursor: grab;
+}
+
+section#schedule > article {
+    padding: 20px;
+    border: 1px solid green;
+}
