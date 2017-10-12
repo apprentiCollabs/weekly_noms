@@ -37,6 +37,7 @@ class AddRecipe(CreateView):
 class AddIngredient(CreateView):
     """Add a new ingredient object to the database."""
     form_class = IngredientForm
+    template_name = 'meal_manager/ingredient.html'
     success_url = reverse_lazy('meals:add_recipe')
 
 
@@ -55,13 +56,12 @@ class ViewRecipe(DetailView):
 
     model = Recipe
     template_name = 'meal_manager/recipe.html'
-    # import pdb; pdb.set_trace()
+
 
 class DeleteRecipe(DeleteView):
     """Remove an unwanted recipe."""
     
     model = Recipe
-    # template_name = 'meal_manager/recipe.html'
     success_url = reverse_lazy('meals:all_recipes')
 
 
