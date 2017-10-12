@@ -24,7 +24,7 @@ class Recipe(models.Model):
         User,
         related_name='recipes'
     )
-    ingredients = models.ManyToManyField(Ingredient, related_name='recipes')
+    ingredients = models.ManyToManyField('Ingredient', related_name='recipes', blank=True)
     tags = TaggableManager()
     title = models.CharField(max_length=100)
     cook_time = models.IntegerField()  # to be stored as an integer number of minutes

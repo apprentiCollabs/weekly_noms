@@ -25,9 +25,14 @@ class AllRecipes(ListView):
 
 class AddRecipe(CreateView):
     """Edit a single recipe."""
-    form_class =  RecipeForm
+    form_class = RecipeForm
     template_name = 'meal_manager/add.html'
     success_url = reverse_lazy('meals:all_recipes')
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        import pdb; pdb.set_trace()
+        return super(AddRecipe, self).form_valid(form)
 
 
 class AddIngredient(CreateView):
