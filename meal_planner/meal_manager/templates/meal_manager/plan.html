@@ -14,132 +14,58 @@
     </div>
 
     <div class="row">
-        <section class="col-xs-3" id="availableRecipes">
+        <section class="col-xs-3 dragBox">
             <h4>
                 Available Recipes
             </h4>
-            <!-- TODO: make divs for each recipe, generated from db, borders and draggable to days of the week -->
+            <div id="availableRecipes">
+                <div class="recipe">
+                    <h6>recipe title</h6>
+                </div>
+                <div class="recipe">
+                    <h6>another recipe</h6>
+                </div>
+                <div class="recipe">
+                    <h6>the tastiest of them all</h6>
+                </div>
+            </div>
         </section>
 
-        <section class="col-xs-9" id="schedule">
-            <article class="day">
-                <h4>
-                    Sunday
-                </h4>
-                <!-- NOTE: recipes are draggable to this area -->
-            </article>
-            <article class="day">
-                <h4>
-                    Monday
-                </h4>
-                <!-- NOTE: recipes are draggable to this area -->
-            </article>
-            <article class="day">
-                <h4>
-                    Tuesday
-                </h4>
-                <!-- NOTE: recipes are draggable to this area -->
-            </article>
-            <article class="day">
-                <h4>
-                    Wednesday
-                </h4>
-                <!-- NOTE: recipes are draggable to this area -->
-            </article>
-            <article class="day">
-                <h4>
-                    Thursday
-                </h4>
-                <!-- NOTE: recipes are draggable to this area -->
-            </article>
-            <article class="day">
-                <h4>
-                    Friday
-                </h4>
-                <!-- NOTE: recipes are draggable to this area -->
-            </article>
-            <article class="day">
-                <h4>
-                    Saturday
-                </h4>
-                <!-- NOTE: recipes are draggable to this area -->
-            </article>
-        </section>
-    </div>
-
-    <!-- <div class="row">
-        <section class="col-xs-12 col-sm-6">
-            <h3>
+        <section class="col-xs-9 dragBox" id="schedule">
+            <h4>
                 Sunday
-            </h3>
-            <p>
-                chosen recipe title!
-            </p> -->
-            <!-- TODO: button disappears once recipe capacity per day is reached? -->
-            <!-- <button type="button" name="add_recipe_to_plan">Add a recipe to this day</button>
-        </section>
-        <section class="col-xs-12 col-sm-6">
-            <h3>
+            </h4>
+            <article class="day" id="sunday"></article>
+            <hr />
+            <h4>
                 Monday
-            </h3>
-            <p>
-                recipe goes here
-            </p>
-            <button type="button" name="add_recipe_to_plan">Add a recipe to this day</button>
-        </section>
-    </div>
-
-    <div class="row">
-        <section class="col-xs-12 col-sm-6">
-            <h3>
+            </h4>
+            <article class="day" id="monday"></article>
+            <hr />
+            <h4>
                 Tuesday
-            </h3>
-            <p>
-                <em>choose a recipe!</em>
-            </p>
-            <button type="button" name="add_recipe_to_plan">Add a recipe to this day</button>
-        </section>
-        <section class="col-xs-12 col-sm-6">
-            <h3>
+            </h4>
+            <article class="day" id="tuesday"></article>
+            <hr />
+            <h4>
                 Wednesday
-            </h3>
-            <p>
-                <em>choose a recipe!</em>
-            </p>
-            <button type="button" name="add_recipe_to_plan">Add a recipe to this day</button>
-        </section>
-    </div>
-
-    <div class="row">
-        <section class="col-xs-12 col-sm-6">
-            <h3>
+            </h4>
+            <article class="day" id="wednesday"></article>
+            <hr />
+            <h4>
                 Thursday
-            </h3>
-            <p>
-                a cool recipe I wanna try
-            </p>
-            <button type="button" name="add_recipe_to_plan">Add a recipe to this day</button>
-        </section>
-        <section class="col-xs-12 col-sm-6">
-            <h3>
+            </h4>
+            <article class="day" id="thursday"></article>
+            <hr />
+            <h4>
                 Friday
-            </h3>
-            <p>
-                <em>choose a recipe!</em>
-            </p>
-            <button type="button" name="add_recipe_to_plan">Add a recipe to this day</button>
+            </h4>
+            <article class="day" id="friday"></article>
+            <hr />
+            <h4>
+                Saturday
+            </h4>
+            <article class="day" id="saturday"></article>
         </section>
     </div>
-
-    <div class="row">
-        <section class"col-xs-12 col-sm-6">
-            <h3>
-                Saturday
-            </h3>
-            <p>
-                <em>choose a recipe!</em>
-            </p>
-            <button type="button" name="add_recipe_to_plan">Add a recipe to this day</button>
-        </section>
-    </div> -->
 {% endblock %}
