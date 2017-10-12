@@ -1,6 +1,15 @@
-from django.conf.urls import url
-from .views import AllRecipes, ViewRecipe, MealPlan, DeleteRecipe, EditRecipe, AddRecipe, AddIngredient
+"""Manage routes for the meal manager."""
 
+from django.conf.urls import url
+from .views import (
+    AllRecipes,
+    ViewRecipe,
+    MealPlan,
+    DeleteRecipe,
+    EditRecipe,
+    AddRecipe,
+    AddIngredient
+)
 
 urlpatterns = [
     url(r'^all_recipes/$', AllRecipes.as_view(), name='all_recipes'),
