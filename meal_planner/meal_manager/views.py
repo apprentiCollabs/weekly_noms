@@ -31,7 +31,6 @@ class AddRecipe(CreateView):
 
     def form_valid(self, form):
         form.instance.user = self.request.user
-        import pdb; pdb.set_trace()
         return super(AddRecipe, self).form_valid(form)
 
 
