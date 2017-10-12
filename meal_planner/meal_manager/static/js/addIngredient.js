@@ -1,46 +1,51 @@
-var newIngredList = document.getElementsByTagName("LI");
-// var i;
-for (var i = 0; i < newIngredList.length; i++) {
-  var span = document.createElement("SPAN");
-  var txt = document.createTextNode("\u00D7");
-  span.className = "close";
-  span.appendChild(txt);
-  newIngredList[i].appendChild(span);
-}
+$(document).ready(function() {
+    // make add new ingredient column div appear
+    $('button#addIngredTrigger').click(function(){
+        $('aside#addIngredCol').toggle(500);
+    });
 
-// Click on a close button to hide the current list item
-var close = document.getElementsByClassName("close");
-// var i;
-for (var i = 0; i < close.length; i++) {
-  close[i].onclick = function() {
-    var div = this.parentElement;
-    div.style.display = "none";
-  }
-}
+    // add click listener on add new button, invokes function below
+    $('span#addNew').click(function(){
+        newElement();
+    });
 
-// Create a new list item when clicking on the "Add" button
-function newElement() {
-  var li = document.createElement("li");
-  var inputValue = document.getElementById("myInput").value;
-  var t = document.createTextNode(inputValue);
-  li.appendChild(t);
-  if (inputValue === '') {
-    alert("You must write something!");
-  } else {
-    document.getElementById("myUL").appendChild(li);
-  }
-  document.getElementById("myInput").value = "";
+    function newElement() {
+        // get all close buttons
+        var allCloseBtns = document.getElementsByClassName('closeBtn');
 
-  var span = document.createElement("SPAN");
-  var txt = document.createTextNode("\u00D7");
-  span.className = "close";
-  span.appendChild(txt);
-  li.appendChild(span);
+        // creates new li and adds class
+        var newLi = document.createElement('li');
+        newLi.className = 'userAddedIngred';
 
-  for (var i = 0; i < close.length; i++) {
-    close[i].onclick = function() {
-      var div = this.parentElement;
-      div.style.display = "none";
+        // get value from input box, makes it into a text node, and adds it to the newly created li
+        var inputValue = document.getElementById('newIngredInput').value;
+        var newIngredText = document.createTextNode(inputValue);
+        newLi.appendChild(newIngredText);
+
+        // handles error of blank input
+        if (inputValue === '') {
+            alert('You must write something!');
+        }
+        else {
+            document.getElementById('addedItems').appendChild(newLi);
+        }
+
+        // sets input to be blank
+        document.getElementById('newIngredInput').value = '';
+
+        // creates close buttons and appends them to newly added ingredients
+        var closeBtnSpan = document.createElement('span');
+        var closeButtonText = document.createTextNode('\u00D7');
+        closeBtnSpan.className = 'closeBtn';
+        closeBtnSpan.appendChild(closeButtonText);
+        newLi.appendChild(closeBtnSpan);
+
+        // adds functionality for close buttons
+        for (var i = 0; i < allCloseBtns.length; i++) {
+            allCloseBtns[i].onclick = function() {
+                var newIngredLi = this.parentElement;
+                newIngredLi.remove();
+            }
+        }
     }
-  }
-}
+})
