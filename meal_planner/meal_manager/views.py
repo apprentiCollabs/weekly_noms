@@ -31,7 +31,6 @@ class AddRecipe(CreateView):
 
     def form_valid(self, form):
         form.instance.user = self.request.user
-        import pdb; pdb.set_trace()
         return super(AddRecipe, self).form_valid(form)
 
 
@@ -55,12 +54,14 @@ class ViewRecipe(DetailView):
     """View a recipe in more complete detail."""
 
     model = Recipe
-
+    template_name = 'meal_manager/recipe.html'
+    # import pdb; pdb.set_trace()
 
 class DeleteRecipe(DeleteView):
     """Remove an unwanted recipe."""
     
     model = Recipe
+    # template_name = 'meal_manager/recipe.html'
     success_url = reverse_lazy('meals:all_recipes')
 
 

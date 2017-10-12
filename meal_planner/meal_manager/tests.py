@@ -48,7 +48,7 @@ class RecipeTestCases(TestCase):
     def setUp(self):
         self.users = [UserFactory.create() for i in range(20)]
         self.recipes = [RecipeFactory.create() for i in range(20)]
-        self.ingredients = [IngredientFactory.create for i in range(20)]
+        self.ingredients = [IngredientFactory.create() for i in range(20)]
         self.client = Client()
         self.request = RequestFactory()
 
@@ -66,22 +66,12 @@ class RecipeTestCases(TestCase):
         self.client.force_login(self.users[0])
         response = self.client.post('/meals/add/', {
             'title': 'title',
-            'ingredients': 'many things',
+            'ingredients': 10,  # id for an ingredient object
             'tags': 'stuff nonsesne',
             'cook_time': 20,
             'instructions': 'words here',
+            'add_new_recipe': ''
         })
-        import pdb; pdb.set_trace()
-        # for recipe, user in zip(self.recipes, self.users):
-            # self.client.post('/meals/add/', {
-            #     "user": user,
-            #     "ingredients": random.sample(self.ingredients, random.randint(1,20)),
-            #     "tags": recipe.tags,
-            #     "title": recipe.title,
-            #     "cook_time": recipe.cook_time,
-            #     "instructions": recipe.instructions,
-            # })
-        # import pdb; pdb.set_trace()
         self.assertFalse(count == Recipe.objects.count())
 
 

@@ -2,13 +2,13 @@
 
 {% block title %}
 <!-- TODO: add actual recipe title instead? or add recipe id number? -->
-    Individual Recipe
+    {{ object.title }}
 {% endblock %}
 
 {% block content %}
     <div class="row">
         <header class="col-xs-12">
-            Recipe Title
+            {{ object.title }}
         </header>
     </div>
 
@@ -16,26 +16,14 @@
         <aside class="col-xs-3">
             <p>
                 <strong>Total time:</strong>
-                380 minutes
+                {{ object.cook_time }}
             </p>
         </aside>
         <aside class="col-xs-9">
             <ul class="list-inline">
-                <li>
-                    <a href="#">
-                        tag 1
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        tag 2
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        tag 3
-                    </a>
-                </li>
+                {% for tag in object.tags.names|slice:":5" %}
+                    <li>{{ tag }}</li>
+                {% endfor %}
             </ul>
         </aside>
     </div>
@@ -44,44 +32,22 @@
         <section class="col-xs-12 col-sm-4">
             <!-- TODO: this list will actually be taken care of with a for loop, but this is a placeholder for now -->
             <ul>
+                {% for ingredient in object.ingredients.all %}
                 <li>
-                    ingredient 1
+                    {{ ingredient.name }}
                 </li>
-                <li>
-                    ingredient 2
-                </li>
-                <li>
-                    ingredient 3
-                </li>
-                <li>
-                    ingredient 4
-                </li>
-                <li>
-                    ingredient 5
-                </li>
-                <li>
-                    ingredient 6
-                </li>
-                <li>
-                    ingredient 7
-                </li>
-                <li>
-                    ingredient 8
-                </li>
+                {% endfor %}
             </ul>
         </section>
 
         <section class="col-xs-12 col-sm-8">
-            <!-- TODO: this may also be taken care of automatically with a for loop, rather than by hand like so -->
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-            <p>
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                {{ object.instructions }}
             </p>
         </section>
     </div>
+    <form action="{% url 'meals:delete_recipe' pk=recipe.id %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Delete">
+    </form>
 {% endblock %}
