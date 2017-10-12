@@ -53,13 +53,22 @@ li.userAddedIngred:hover {
 
 
 /*** plan.html ***/
-div.recipe {
+div#availableRecipes {
     padding: 10px;
-    border: 1px solid purple;
-    cursor: grab;
+    border: 1px solid rgba(0, 185, 77, 0.4);
+    border-radius: 0.2em;
 }
 
-section#schedule > article {
+div.recipe {
+    padding: 5px 10px 5px 10px;
+    border: 1px solid #00B94D;
+    background-color: rgba(0, 185, 77, 0.2);
+    border-radius: 0.8em;
+    margin: 5px 0 5px 0;
+}
+
+section#schedule > .day {
     padding: 20px;
-    border: 1px solid green;
+    border: 1px solid rgba(0, 141, 250, 0.5);
+    border-radius: 0.2em;
 }

@@ -3,8 +3,7 @@ $(document).ready(function() {
         return document.getElementById(id);
     }
 
-    dragula([$('availableRecipes'), $('sunday'), $('monday'), $('tuesday'), $('wednesday'), $('thursday'), $('friday'), $('saturday'),], { revertOnSpill: true
-    }).on('drop', function(el) {
-
-    });
+    dragula([$('availableRecipes'), $('sunday'), $('monday'), $('tuesday'), $('wednesday'), $('thursday'), $('friday'), $('saturday'),], {
+        revertOnSpill: true
+    })
 })
