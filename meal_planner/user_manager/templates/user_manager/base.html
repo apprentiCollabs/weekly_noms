@@ -23,13 +23,15 @@
 
     <nav class="navbar navbar-default">
         <a href="#" class="navbar-brand">
-            Logo
+            Weekly Noms
         </a>
         <ul class="nav navbar-nav navbar-right">
             <li>
-                <a href="#">
-                    Action link 1
-                </a>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'meals:all_recipes' %}">Your Recipes</a>
+                {% else %}
+                    <a href="/">Login or create an account</a>
+                {% endif %}
             </li>
             <li>
                 <a href="#">
