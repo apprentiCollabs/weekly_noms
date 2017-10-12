@@ -46,8 +46,13 @@
             </p>
         </section>
     </div>
+    <form action="{% url 'meals:edit_recipe' pk=recipe.id %}" method="get">
+        {% csrf_token %}
+        <input class="btn btn-info" type="submit" value="Edit">
+    </form>
     <form action="{% url 'meals:delete_recipe' pk=recipe.id %}" method="post">
         {% csrf_token %}
-        <input type="submit" class="btn btn-warning" value="Delete" />
+        <input class="btn btn-info" type="submit" value="Delete">
+
     </form>
 {% endblock %}
