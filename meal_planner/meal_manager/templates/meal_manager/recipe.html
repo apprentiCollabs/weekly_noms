@@ -1,7 +1,6 @@
 {% extends 'meal_manager/base.html' %}
 
 {% block title %}
-<!-- TODO: add actual recipe title instead? or add recipe id number? -->
     {{ object.title }}
 {% endblock %}
 
@@ -22,7 +21,9 @@
         <aside class="col-xs-9">
             <ul class="list-inline">
                 {% for tag in object.tags.names|slice:":5" %}
-                    <li>{{ tag }}</li>
+                    <li>
+                        {{ tag }}
+                    </li>
                 {% endfor %}
             </ul>
         </aside>
@@ -30,7 +31,6 @@
 
     <div class="row">
         <section class="col-xs-12 col-sm-4">
-            <!-- TODO: this list will actually be taken care of with a for loop, but this is a placeholder for now -->
             <ul>
                 {% for ingredient in object.ingredients.all %}
                 <li>
@@ -48,6 +48,6 @@
     </div>
     <form action="{% url 'meals:delete_recipe' pk=recipe.id %}" method="post">
         {% csrf_token %}
-        <input type="submit" value="Delete">
+        <input type="submit" class="btn btn-warning" value="Delete" />
     </form>
 {% endblock %}
