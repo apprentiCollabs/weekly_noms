@@ -39,6 +39,7 @@ class AddIngredient(LoginRequiredMixin, CreateView):
 
     login_url = reverse_lazy('users:login')
     form_class = IngredientForm
+    template_name = 'meal_manager/ingredient.html'
     success_url = reverse_lazy('meals:add_recipe')
 
 

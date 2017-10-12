@@ -1,0 +1,27 @@
+{% extends 'meal_manager/base.html' %}
+
+{% load widget_tweaks %}
+
+{% block title %}
+    Add New Ingredient
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <header class="col-xs-12">
+            <h1>
+                Add New Ingredient
+            </h1>
+        </header>
+    </div>
+
+    <div class="row">
+        <section>
+            <form class="form-control" action="{% url 'meals:add_ingredient' %}" method="post">
+                {% csrf_token %}
+                {{ form }}
+                <input type="submit" name="sendIngredient" value="Submit" />
+            </form>
+        </section>
+    </div>
+{% endblock %}

@@ -1,7 +1,7 @@
 $(document).ready(function() {
     // make add new ingredient column div appear
     $('button#addIngredTrigger').click(function(){
-        $('aside#addIngredCol').toggle(500);
+        // $('div#addIngredCol').toggle(500);
     });
 
     // add click listener on add new button, invokes function below

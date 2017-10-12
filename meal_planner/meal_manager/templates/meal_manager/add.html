@@ -12,6 +12,9 @@
             <h1>
                 Add New Recipe
             </h1>
+            <a href="{% url 'meals:add_ingredient' %}" class="btn btn-default btn-sm">
+                Need to add an ingredient?
+            </a>
         </header>
     </div>
 
@@ -73,7 +76,6 @@
                             Need to add an ingredient?
                         </button>
                     </div>
-
                     <label for="{{ form.instructions.id_for_label }}">
                         {{ form.instructions.label }}
                     </label>
@@ -86,7 +88,7 @@
             </form>
         </section>
 
-        <aside class="col-xs-4" id="addIngredCol">
+        <!-- <aside class="col-xs-4" id="addIngredCol">
             <div class="input-group" id="newIngredInputBox">
                 <!-- TODO: get this input to send a post request to meals:add_ingredient. -->
                 <form action="{% url 'meals:add_ingredient' %}" method="post">
@@ -97,9 +99,7 @@
             </div>
 
             <ul id="addedItems" class="list-group">
-                <!-- NOTE: new ingredients are added dynamically here -->
             </ul>
-        </div>
-        </aside>
+        </aside> -->
     </div>
 {% endblock %}
