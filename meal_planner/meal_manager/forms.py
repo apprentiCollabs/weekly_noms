@@ -1,5 +1,5 @@
 from django.db import models
-from django.forms import ModelForm
+from django.forms import ModelForm, widgets
 from .models import Recipe, Ingredient
 
 
@@ -9,6 +9,9 @@ class RecipeForm(ModelForm):
     class Meta:
         model = Recipe
         fields = ['tags', 'cook_time', 'title', 'ingredients', 'instructions']
+        widgets = {
+            'tags': widgets.CheckboxSelectMultiple,
+        }
 
 
 class IngredientForm(ModelForm):

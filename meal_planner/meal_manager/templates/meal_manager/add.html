@@ -16,7 +16,7 @@
     </div>
 
     <div class="row">
-        <section class="col-xs-12">
+        <section class="col-xs-8">
             <form action="{% url 'meals:add_recipe' %}" method="post">
                 {% csrf_token %}
 
@@ -38,11 +38,28 @@
                     </div>
                 {% endfor %}
                 <div class="form-group">
-                    <button type="submit" name="add" class="btn btn-success">
+                    <button type="button" name="button" class="btn btn-default btn-sm" id="addIngredTrigger">
+                        Need to add an ingredient?
+                    </button>
+                </div>
+                <div class="form-group">
+                    <button type="submit" name="add_new_recipe" class="btn btn-success">
                         Submit
                     </button>
                 </div>
             </form>
         </section>
+
+        <aside class="col-xs-4" id="addIngredCol">
+            <div class="input-group" id="newIngredInputBox">
+                <input type="text" id="newIngredInput" placeholder="Add a new thing here" class="form-control" />
+                <span class="input-group-addon btn btn-sm btn-default" id="addNew">Add</span>
+            </div>
+
+            <ul id="addedItems" class="list-group">
+                <!-- NOTE: new ingredients are added dynamically here -->
+            </ul>
+        </div>
+        </aside>
     </div>
 {% endblock %}
