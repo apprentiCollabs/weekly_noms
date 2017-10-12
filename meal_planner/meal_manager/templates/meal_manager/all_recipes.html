@@ -12,14 +12,17 @@
             </h1>
         </header>
     </div>
-    
+
     <div class="row">
         {% for recipe in object_list %}
-            <!-- TODO: theoretically this can also be dealt with via a for loop for generating the list from the db -->
             <article class="col-xs-6 col-sm-4">
-                <h4>{{ recipe.title }}</h4>
-                {% for tag in recipe.tags.names|slice:":5" %}
-                    <p>{{ tag }} </p>
+                <h4 class="text-center">
+                    {{ recipe.title }}
+                </h4>
+                {% for tag in recipe.tags.names|slice:":6" %}
+                    <p>
+                        {{ tag }}
+                    </p>
                 {% endfor %}
                 <a href="{% url 'meals:view_recipe' pk=recipe.id %}">Read more...</a>
             </article>
