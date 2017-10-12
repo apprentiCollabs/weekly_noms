@@ -3,84 +3,50 @@ nav a:last-child {
     margin-right: 20px;
 }
 
+body {
+    font-size: 1.5em;
+}
+
+
+
+/*** add.html ***/
 aside#addIngredCol {
     display: none;
 }
 
-/** {
-    box-sizing: border-box;
-}*/
-
-
-/*ul#myUL {
-    margin: 0;
-    padding: 0;
+div#newIngredInputBox {
+    margin-bottom: 20px;
 }
 
-ul#myUL li {
-    position: relative;
-    padding: 12px 8px 12px 40px;
-    background: #eee;
-    font-size: 18px;
-    transition: 0.2s;
+ul#addedItems {
+    list-style-type: none;
+}
 
+.closeBtn {
+    padding: 9px 13px 9px 13px;
+    margin-left: 10px;
+    text-align: center;
+}
+
+.closeBtn:hover {
+    background-color: #B100B2;
+    color: white;
+}
+
+li.userAddedIngred {
+    padding: 5px;
+    background: #EEE;
+    transition: 0.2s;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
 }
 
-ul#myUL li:nth-child(odd) {
+li.userAddedIngred:nth-child(odd) {
     background: #f9f9f9;
 }
 
-ul#myUL li:hover {
-    background: #ddd;
+li.userAddedIngred:hover {
+    background: #DDD;
 }
-
-.close {
-    position: absolute;
-    right: 0;
-    top: 0;
-    padding: 12px 16px 12px 16px;
-}
-
-.close:hover {
-    background-color: purple;
-    color: white;
-}
-
-.header {
-    background-color: green;
-    padding: 30px 40px;
-    color: white;
-    text-align: center;
-}
-
-.header:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-input#myInput {
-    border: none;
-    width: 50%;
-    padding: 10px;
-    float: center;
-    font-size: 16px;
-}
-
-.addBtn {
-    padding: 10px;
-    width: 25%;
-    background: purple;
-    color: white;
-    float: center;
-    font-size: 16px;
-    transition: 0.3s;
-}
-
-.addBtn:hover {
-    background-color: #888;
-}*/
