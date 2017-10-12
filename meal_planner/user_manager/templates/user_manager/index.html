@@ -8,28 +8,24 @@
     <div class="row">
         <header class="col-xs-12 jumbotron">
             <h1>
-                Weekly Noms
+                Welcome to Weekly Noms
             </h1>
         </header>
     </div>
 
     <div class="row">
-        <aside class="col-xs-6">
-            <h3>
-                Login
-            </h3>
-            <p>
-                If you've been here before, you should <a href="{% url 'users:login' %}" class="btn btn-lg btn-success">login</a>
-            </p>
+        <aside class="col-xs-4 col-xs-offset-1">
+            <h5 class="text-center">
+                If you've been here before, you should
+            </h5>
+            <a href="{% url 'users:login' %}" class="btn btn-lg btn-success btn-block">login</a>
         </aside>
 
-        <aside class="col-xs-6">
-            <h3>
-                Register
-            </h3>
-            <p>
-                If you've never been here before, you should <a href="{% url 'users:register' %}" class="btn btn-lg btn-success">Register</a>
-            </p>
+        <aside class="col-xs-4 col-xs-offset-2">
+            <h5 class="text-center">
+                If you don't have an account, you should
+            </h5>
+            <a href="{% url 'users:register' %}" class="btn btn-lg btn-success btn-block">Register</a>
         </aside>
     </div>
 {% endblock %}

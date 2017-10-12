@@ -25,20 +25,20 @@
   <body>
 
     <nav class="navbar navbar-default">
-        <a href="#" class="navbar-brand">
-            Logo
+        <a href="/" class="navbar-brand">
+            <span class="glyphicon glyphicon-apple" aria-hidden="true"></span> Weekly Noms
         </a>
         <ul class="nav navbar-nav navbar-right">
-            <li>
-                <a href="#">
-                    Action link 1
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    Action link 2
-                </a>
-            </li>
+            {% if user.is_authenticated %}
+                <li>
+                    <a href="{% url 'meals:all_recipes' %}">Your Recipes</a>
+                </li>
+            {% endif %}
+            {% if user.is_authenticated %}
+                <li>
+                    <a href="{% url 'meals:plan' %}">Meal Plan</a>
+                </li>
+            {% endif %}
         </ul>
     </nav>
 
