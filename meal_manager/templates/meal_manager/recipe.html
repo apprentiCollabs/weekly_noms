@@ -7,15 +7,17 @@
 {% block content %}
     <div class="row">
         <header class="col-xs-12">
-            {{ object.title }}
+            <h1>
+                {{ object.title }}
+            </h1>
         </header>
     </div>
 
     <div class="row">
         <aside class="col-xs-3">
             <p>
-                <strong>Total time:</strong>
-                {{ object.cook_time }}
+                <strong>Total cook time:</strong>
+                {{ object.cook_time }} minutes
             </p>
         </aside>
         <aside class="col-xs-9">
@@ -31,7 +33,10 @@
 
     <div class="row">
         <section class="col-xs-12 col-sm-4">
-            <ul>
+            <h5>
+                Ingredients
+            </h5>
+            <ul class="list-unstyled">
                 {% for ingredient in object.ingredients.all %}
                 <li>
                     {{ ingredient.name }}
@@ -46,13 +51,21 @@
             </p>
         </section>
     </div>
-    <form action="{% url 'meals:edit_recipe' pk=recipe.id %}" method="get">
-        {% csrf_token %}
-        <input class="btn btn-info" type="submit" value="Edit">
-    </form>
-    <form action="{% url 'meals:delete_recipe' pk=recipe.id %}" method="post">
-        {% csrf_token %}
-        <input class="btn btn-info" type="submit" value="Delete">
 
-    </form>
+    <div class="row">
+        <aside class="col-xs-1 col-xs-offset-9 text-right">
+            <form action="{% url 'meals:delete_recipe' pk=recipe.id %}" method="POST" class="form-inline">
+                {% csrf_token %}
+                <input class="btn btn-warning" type="submit" value="Delete">
+            </form>
+        </aside>
+        <aside class="col-xs-1">
+            <!-- BUG/TODO: the edit button currently allows editing but creates a duplicate in the db (with the new info) instead of resaving the original entry -->
+            <form action="{% url 'meals:edit_recipe' pk=recipe.id %}" method="GET" class="form-inline">
+                {% csrf_token %}
+                <input class="btn btn-success" type="submit" value="Edit">
+            </form>
+        </aside>
+    </div>
+
 {% endblock %}
