@@ -15,6 +15,8 @@
             <a href="{% url 'meals:add_ingredient' %}" class="btn btn-default btn-sm">
                 Need to add an ingredient?
             </a>
+            <br />
+            <br />
         </header>
     </div>
 
@@ -38,7 +40,6 @@
                     </label>
                     {{ form.tags|add_class:'form-control' }}
 
-
                     <label for="{{ form.cook_time.id_for_label }}">
                         {{ form.cook_time.label }}
                     </label>
@@ -48,11 +49,6 @@
                         {{ form.ingredients.label }}
                     </label>
                     {{ form.ingredients|add_class:'form-control' }}
-                    <div class="form-group">
-                        <button type="button" name="button" class="btn btn-default btn-sm" id="addIngredTrigger">
-                            Need to add an ingredient?
-                        </button>
-                    </div>
                     <label for="{{ form.instructions.id_for_label }}">
                         {{ form.instructions.label }}
                     </label>
@@ -67,16 +63,16 @@
 
         <!-- <aside class="col-xs-4" id="addIngredCol">
             <div class="input-group" id="newIngredInputBox">
-                <!-- TODO: get this input to send a post request to meals:add_ingredient. -->
-                <form action="{% url 'meals:add_ingredient' %}" method="post">
+                TODO: get this input to send a post request to meals:add_ingredient. -->
+                <!-- <form action="{% url 'meals:add_ingredient' %}" method="post">
                 <input type="text" id="newIngredInput" placeholder="Add a new thing here" class="form-control" />
                     <input type="submit" value="Add" class="input-group-addon btn btn-sm btn-default" id="addNew">
-                </form>
+                </form> -->
                 <!-- <span class="input-group-addon btn btn-sm btn-default" id="addNew">Add</span> -->
-            </div>
+            <!-- </div> -->
 
-            <ul id="addedItems" class="list-group">
-            </ul>
-        </aside> -->
+            <!-- <ul id="addedItems" class="list-group">
+            </ul> -->
+        <!-- </aside> -->
     </div>
 {% endblock %}
