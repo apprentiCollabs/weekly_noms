@@ -16,12 +16,19 @@
     </div>
 
     <div class="row">
-        <section>
-            <form class="form-control" action="{% url 'meals:add_ingredient' %}" method="post">
+        <section class="col-xs-6">
+            <form action="{% url 'meals:add_ingredient' %}" method="POST">
                 {% csrf_token %}
-                {{ form }}
-                <input type="submit" name="sendIngredient" value="Submit" />
+                <!-- TODO: convert to a better way so name and label will show up appropriately, with form-control tag on the input -->
+                <label for="{{ form.name.id_for_label }}">
+                    {{ form.name.label }}
+                </label>
+                {{ form.name|add_class:'form-control' }}
+                <br />
+                <input type="submit" name="sendIngredient" value="Submit" class="btn btn-success btn-lg" />
             </form>
         </section>
     </div>
+
+    <!-- TODO: could put list of current ingredients in db next to this, that would be cool! -->
 {% endblock %}

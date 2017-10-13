@@ -28,9 +28,10 @@
             <form action="{% url 'meals:add_recipe' %}" method="post">
                 {% csrf_token %}
 
-                {% for hidden in form.hidden_fields %}
+                <!-- TODO: verify that this is unnecessary -->
+                <!-- {% for hidden in form.hidden_fields %}
                     {{ hidden }}
-                {% endfor %}
+                {% endfor %} -->
 
                 <div class="form-group">
                     <label for="{{ form.title.id_for_label }}">
@@ -78,6 +79,7 @@
             </form>
         </section>
 
+        <!-- TODO: this would be preferable to having to go to a separate page for new ingredient adding. PRESERVE THIS BLOCK OF CODE FOR FUTURE USE! -->
         <!-- <aside class="col-xs-4" id="addIngredCol">
             <div class="input-group" id="newIngredInputBox">
                 TODO: get this input to send a post request to meals:add_ingredient. -->
