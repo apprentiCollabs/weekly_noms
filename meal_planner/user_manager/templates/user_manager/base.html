@@ -28,12 +28,19 @@
         <ul class="nav navbar-nav navbar-right">
             {% if user.is_authenticated %}
                 <li>
-                    <a href="{% url 'meals:all_recipes' %}">Your Recipes</a>
+                    <a href="{% url 'meals:all_recipes' %}">
+                        Your Recipes
+                    </a>
                 </li>
-            {% endif %}
-            {% if user.is_authenticated %}
                 <li>
-                    <a href="{% url 'meals:plan' %}">Meal Plan</a>
+                    <a href="{% url 'meals:plan' %}">
+                        Meal Plan
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'meals:add_recipe' %}">
+                        Add New Recipe
+                    </a>
                 </li>
             {% endif %}
         </ul>
