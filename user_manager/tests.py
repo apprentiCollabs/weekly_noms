@@ -33,7 +33,6 @@ class UserTestCases(TestCase):
         })
         logged_in_user = auth.get_user(self.client)
         self.assertTrue(logged_in_user.is_authenticated)
-        # self.assertRedirects(response, '')
     
     def test_user_register(self):
         """Test that user registration view works."""

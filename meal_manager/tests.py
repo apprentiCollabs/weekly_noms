@@ -34,7 +34,6 @@ class RecipeFactory(factory.django.DjangoModelFactory):
         model = Recipe
 
     user = factory.SubFactory(UserFactory)
-    # ingredients = factory.SubFactory(IngredientFactory)
     tags = 'tag1 tag2'
     title = 'test recipe'
     cook_time = 180
@@ -69,7 +68,7 @@ class RecipeTestCases(TestCase):
         self.client.force_login(self.users[0])
         self.client.post('/meals/add/', {
             'title': 'title',
-            'ingredients': 10,  # id for an ingredient object
+            'ingredients': 10,
             'tags': 'stuff nonsesne',
             'cook_time': 20,
             'instructions': 'words here',
