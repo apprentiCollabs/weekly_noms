@@ -45,6 +45,12 @@
                         Add New Recipe
                     </a>
                 </li>
+                <li>
+                    <!-- TODO: while this works technically, it should redirect to the custom logged-out page! -->
+                    <a href="{% url 'users:logout' %}">
+                        Logout
+                    </a>
+                </li>
             {% endif %}
         </ul>
     </nav>
