@@ -29,44 +29,16 @@
                     {{ hidden }}
                 {% endfor %}
 
-                <!-- {% for field in form.visible_fields %}
-                    <div class="form-group">
-                        {% for error in field.errors %}
-                        <span class="help-block">
-                            {{ error }}
-                        </span>
-                        {% endfor %}
-                    </div> -->
-                    <!-- {% endfor %} -->
                     <label for="{{ form.title.id_for_label }}">
                         {{ form.title.label }}
                     </label>
                     {{ form.title|add_class:'form-control' }}
-                    <!-- NOTE: Tags hardcoded here -->
-                    <input type="checkbox" name="healthy" value="healthy" id="">
-                    <label for="healthy">Healthy</label>
 
-                    <input type="checkbox" name="comfort" value="comfort" id="">
-                    <label for="comfort">Comfort Food</label>
 
-                    <input type="checkbox" name="vegetarian" value="vegetarian" id="">
-                    <label for="vegetarian">Vegetarian</label>
-
-                    <input type="checkbox" name="easy" value="easy" id="">
-                    <label for="easy">Easy</label>
-
-                    <input type="checkbox" name="quick" value="quick" id="">
-                    <label for="quick">Quick</label>
-
-                    <input type="checkbox" name="prepare_ahead" value="prepare_ahead" id="">
-                    <label for="prepare_ahead">Prepare ahead</label>
-
-                    <br />
-
-                    <input type="checkbox" name="large_portions" value="large_portions" id="" />
-                    <label for="large_portions">Large Portions</label>
-
-                    <br />
+                    <label for="{{ form.title.id_for_label }}">
+                        {{ form.tags.label }}
+                    </label>
+                    {{ form.tags|add_class:'form-control' }}
 
                     <label for="{{ form.cook_time.id_for_label }}">
                         {{ form.cook_time.label }}
