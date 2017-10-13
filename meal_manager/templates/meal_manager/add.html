@@ -8,20 +8,23 @@
 
 {% block content %}
     <div class="row">
-        <header class="col-xs-12">
+        <header class="col-xs-7">
             <h1>
                 Add New Recipe
             </h1>
-            <a href="{% url 'meals:add_ingredient' %}" class="btn btn-default btn-sm">
+            <span id="helpBlockIngreds" class="help-block">
+                If you need to add ingredients to the database, be aware that any changes you've made on this form will not be saved. Always add ingredients first!
+            </span>
+            <a href="{% url 'meals:add_ingredient' %}" class="btn btn-primary btn-sm" aria-describedby="helpBlockIngreds">
                 Need to add an ingredient?
             </a>
-            <br />
+            <hr />
             <br />
         </header>
     </div>
 
     <div class="row">
-        <section class="col-xs-8">
+        <section class="col-xs-7">
             <form action="{% url 'meals:add_recipe' %}" method="post">
                 {% csrf_token %}
 
@@ -29,30 +32,44 @@
                     {{ hidden }}
                 {% endfor %}
 
+                <div class="form-group">
                     <label for="{{ form.title.id_for_label }}">
-                        {{ form.title.label }}
+                        Recipe {{ form.title.label }}
                     </label>
                     {{ form.title|add_class:'form-control' }}
+                </div>
 
-
+                <div class="form-group">
                     <label for="{{ form.title.id_for_label }}">
                         {{ form.tags.label }}
                     </label>
+                    <span id="helpBlockTags" class="help-block">
+                        Tag examples include quick, easy, slowcooker, complicated, etc. In the future, you'll be able to filter recipes by tag name.
+                    </span>
                     {{ form.tags|add_class:'form-control' }}
+                </div>
 
+                <div class="form-group">
                     <label for="{{ form.cook_time.id_for_label }}">
-                        {{ form.cook_time.label }}
+                        {{ form.cook_time.label }} (minutes)
                     </label>
                     {{ form.cook_time|add_class:'form-control' }}
+                </div>
 
+                <div class="form-group">
                     <label for="{{ form.ingredients.id_for_label }}">
                         {{ form.ingredients.label }}
                     </label>
                     {{ form.ingredients|add_class:'form-control' }}
+                </div>
+
+                <div class="form-group">
                     <label for="{{ form.instructions.id_for_label }}">
                         {{ form.instructions.label }}
                     </label>
                     {{ form.instructions|add_class:'form-control' }}
+                </div>
+
                 <div class="form-group">
                     <button type="submit" name="add_new_recipe" class="btn btn-success">
                         Submit
