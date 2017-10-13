@@ -10,6 +10,9 @@ class Ingredient(models.Model):
 
     name = models.CharField(max_length=100)
 
+    def __unicode__(self):
+        return self.name
+
 
 class Recipe(models.Model):
     """Store recipes for the user."""
